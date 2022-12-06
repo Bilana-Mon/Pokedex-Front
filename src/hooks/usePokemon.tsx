@@ -16,16 +16,8 @@ export const usePokemon = () => {
             const pokemonPayload = await pokemonResponse.json();
 
             const pokemonSpritesPayload = pokemonPayload.sprites;
-            const pokemonSpritesArrayValues = Object.values(
-                pokemonSpritesPayload
-            );
-            const pokemonSpritesArray = pokemonSpritesArrayValues.slice(0, -2);
-            const filteredPokemonSpritesArray = pokemonSpritesArray.filter(
-                (pokemonSprite: any) => {
-                    return pokemonSprite !== null;
-                }
-            );
-            pokemonStore.setPokemonSprites(filteredPokemonSpritesArray);
+            const pokemonSprite = pokemonSpritesPayload.front_default;
+            pokemonStore.setPokemonSprites(pokemonSprite);
 
             pokemonStore.setPokemonIndex(pokemonPayload.id);
 
@@ -93,7 +85,7 @@ export const usePokemon = () => {
     const setPokemonMoves = (pokemonMoves: []) =>
         pokemonStore.setPokemonMoves(pokemonMoves);
 
-    const pokemonSpritesImgs = pokemonStore.pokemonSprites;
+    const pokemonSpritesImg = pokemonStore.pokemonSprites;
     const pokemonIndex = pokemonStore.pokemonIndex;
     const pokemonName = pokemonStore.pokemonName;
     const pokemonAbilities = pokemonStore.pokemonAbilities;
@@ -112,7 +104,7 @@ export const usePokemon = () => {
         pokemonName,
         pokemonIndex,
         pokemonAbilities,
-        pokemonSpritesImgs,
+        pokemonSpritesImg,
         pokemonStatsArrayOfObjects,
         pokemonTypesArray,
         pokemonMoves,
