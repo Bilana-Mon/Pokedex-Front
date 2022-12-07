@@ -11,14 +11,37 @@ const Info = () => {
         pokemonTypesArray,
         pokemonMoves,
     } = usePokemon();
+
+    const addedZeroToPokemonIndex = (id: number) => {
+        if (id < 100 && id < 10) {
+            return '00' + id;
+        } else if (id < 100 && id > 10) {
+            return '0' + id;
+        }
+        return id;
+    };
+
     return (
         <div>
+            <span className="font-flexo-md text-pokegray-100 text-md font-semibold ">
+                #{addedZeroToPokemonIndex(pokemonIndex)}
+            </span>
+            <span className="flex items-center justify-center">
+                <img
+                    className="w-[200px] h-[150px] object-cover"
+                    src={pokemonSpritesImg}
+                    alt=""
+                />
+            </span>
             <span className="text-white flex ">
                 {pokemonTypesArray.map(
                     (pokemonTypeObject: any, index: number) => {
                         return (
-                            <span className="mr-2" key={index}>
-                                <span>{pokemonTypeObject}</span>
+                            <span
+                                className={`${pokemonTypeObject.pokemonTypeClass} rounded-lg p-1 mr-2`}
+                                key={index}
+                            >
+                                <span>{pokemonTypeObject.pokemonTypeName}</span>
                             </span>
                         );
                     }

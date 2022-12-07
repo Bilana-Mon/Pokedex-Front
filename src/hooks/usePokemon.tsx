@@ -14,6 +14,7 @@ export const usePokemon = () => {
                 },
             });
             const pokemonPayload = await pokemonResponse.json();
+            console.log(pokemonPayload);
 
             const pokemonSpritesPayload = pokemonPayload.sprites;
             const pokemonSprite = pokemonSpritesPayload.front_default;
@@ -26,7 +27,8 @@ export const usePokemon = () => {
             const pokemonTypesPayload = pokemonPayload.types;
             const pokemonTypes = pokemonTypesPayload.map((pokemonType: any) => {
                 const pokemonTypeName = pokemonType.type.name;
-                return pokemonTypeName;
+                const pokemonTypeClass = pokemonTypeName;
+                return { pokemonTypeName, pokemonTypeClass };
             });
             pokemonStore.setPokemonTypes(pokemonTypes);
 
@@ -110,3 +112,6 @@ export const usePokemon = () => {
         pokemonMoves,
     };
 };
+function async(arg0: (pokemon: object) => any) {
+    throw new Error('Function not implemented.');
+}

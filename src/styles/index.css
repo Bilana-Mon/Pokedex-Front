@@ -9,3 +9,93 @@
 @font-face {
   font-family: "FLEXO-MEDIUM";
 }
+
+.normal {
+  background: #A4AcAf;
+  color: #313131;
+}
+
+.grass {
+  background: #9Bcc50;
+  color: #313131;
+}
+
+.poison {
+  background: #B97FC9;
+  color: #F2F2F2;
+}
+
+.fire {
+  background: #FD7D24;
+  color: #F2F2F2;
+}
+
+.water {
+  background: #4592C4;
+  color: #F2F2F2;
+}
+
+.flying {
+  background: #3DC7EF;
+  color: #313131;
+}
+
+.bug {
+  background: #729F3F;
+  color: #F2F2F2;
+}
+
+.electric {
+  background: #EED535;
+  color: #313131;
+}
+
+.ground {
+  background: #AB9842;
+  color: #313131;
+}
+
+.fairy {
+  background: #FDB9E9;
+  color: #313131;
+}
+
+.fighting {
+  background: #D56723;
+  color: #F2F2F2;
+}
+
+.psychic {
+  background: #F366D9;
+  color: #F2F2F2;
+}
+
+.rock {
+  background: #A38C21;
+  color: #F2F2F2;
+}
+
+.steel {
+  background: #9Eb7B8;
+  color: #313131;
+}
+
+.ice {
+  background: #51C4E7;
+  color: #313131;
+}
+
+.ghost {
+  background: #7B62A3;
+  color: #F2F2F2;
+}
+
+.dragon {
+  background: #F16E57;
+  color: #F2F2F2;
+}
+
+.dark {
+  background: #707070;
+  color: #F2F2F2;
+}

@@ -6,6 +6,15 @@ const Card = () => {
     const { pokemonSpritesImg, pokemonName, pokemonIndex, pokemonTypesArray } =
         usePokemon();
 
+    const addedZeroToPokemonIndex = (id: number) => {
+        if (id < 100 && id < 10) {
+            return '00' + id;
+        } else if (id < 100 && id > 10) {
+            return '0' + id;
+        }
+        return id;
+    };
+
     const handleNavigate = (event: any) => {
         event.preventDefault();
         navigate('/pokemon-info');
@@ -24,7 +33,7 @@ const Card = () => {
                 />
             </span>
             <span className="font-flexo-md text-pokegray-100 text-md font-semibold ">
-                #{pokemonIndex}
+                #{addedZeroToPokemonIndex(pokemonIndex)}
             </span>
             <span className="font-flexo-md text-pokegray-250 text-lg font-bold ">
                 {pokemonName}
@@ -34,10 +43,10 @@ const Card = () => {
                     (pokemonTypeObject: any, index: number) => {
                         return (
                             <span
-                                className="bg-lime-500 rounded p-1 mr-2"
+                                className={`${pokemonTypeObject.pokemonTypeClass} p-1 rounded mr-2`}
                                 key={index}
                             >
-                                <span>{pokemonTypeObject}</span>
+                                <span>{pokemonTypeObject.pokemonTypeName}</span>
                             </span>
                         );
                     }
