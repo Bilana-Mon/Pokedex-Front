@@ -27,7 +27,7 @@ const Card = () => {
         >
             <span className="flex items-center justify-center">
                 <img
-                    className="w-[200px] h-[150px] object-cover"
+                    className="w-[200px] h-[150px] "
                     src={pokemonSpritesImg}
                     alt=""
                 />

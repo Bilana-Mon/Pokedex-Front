@@ -1,33 +1,49 @@
 import { useEffect, useState } from 'react';
 import { usePokemonStore } from '../store';
 
-const ENDPOINT = `https://pokeapi.co/api/v2/pokemon/bulbasaur`;
-
 export const usePokemon = () => {
+    const [msgError, setMsgError] = useState('');
     const pokemonStore: any = usePokemonStore();
 
     useEffect(() => {
-        const fetchPokemons = async () => {
+        const fetchPokemons = async (query: string) => {
+            const ENDPOINT = `https://pokeapi.co/api/v2/pokemon/${query}`;
             const pokemonResponse = await fetch(ENDPOINT, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
             });
-            const pokemonPayload = await pokemonResponse.json();
-            console.log(pokemonPayload);
 
-            const pokemonSpritesPayload = pokemonPayload.sprites;
+            if (
+                pokemonResponse.status === 404 ||
+                pokemonResponse.statusText === 'Not Found'
+            ) {
+                setMsgError('Pokemon Not Found');
+                return;
+            }
+
+            const pokemonPayload = await pokemonResponse.json();
+
+            const pokemonSpritesPayload =
+                pokemonPayload.sprites.other.dream_world;
             const pokemonSprite = pokemonSpritesPayload.front_default;
             pokemonStore.setPokemonSprites(pokemonSprite);
 
             pokemonStore.setPokemonIndex(pokemonPayload.id);
 
-            pokemonStore.setPokemonName(pokemonPayload.name);
+            const pokemonNamePoayload = pokemonPayload.name;
+            const pokemonName =
+                pokemonNamePoayload.charAt(0).toUpperCase() +
+                pokemonNamePoayload.slice(1);
+            pokemonStore.setPokemonName(pokemonName);
 
             const pokemonTypesPayload = pokemonPayload.types;
             const pokemonTypes = pokemonTypesPayload.map((pokemonType: any) => {
-                const pokemonTypeName = pokemonType.type.name;
-                const pokemonTypeClass = pokemonTypeName;
+                const pokemonTypeNamePayload = pokemonType.type.name;
+                const pokemonTypeName =
+                    pokemonTypeNamePayload.charAt(0).toUpperCase() +
+                    pokemonTypeNamePayload.slice(1);
+                const pokemonTypeClass = pokemonTypeNamePayload;
                 return { pokemonTypeName, pokemonTypeClass };
             });
             pokemonStore.setPokemonTypes(pokemonTypes);
@@ -60,10 +76,8 @@ export const usePokemon = () => {
                     return pokemonMoveName;
                 });
             pokemonStore.setPokemonMoves(pokemonMovesArray);
-
-            console.log(pokemonPayload);
         };
-        fetchPokemons();
+        fetchPokemons('bulbasaur');
     }, []);
 
     const setPokemonName = (pokemonName: string) =>
@@ -112,6 +126,3 @@ export const usePokemon = () => {
         pokemonMoves,
     };
 };
-function async(arg0: (pokemon: object) => any) {
-    throw new Error('Function not implemented.');
-}
