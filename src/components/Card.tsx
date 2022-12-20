@@ -22,7 +22,7 @@ const Card = () => {
 
     return (
         <div
-            className="flex flex-col items-start justify-center mt-2 px-2 py-3 bg-pokegray-50 w-[200px] min-h-fit rounded-lg hover:cursor-pointer hover:scale-110"
+            className="flex flex-col items-start justify-center mt-20 px-2 py-3 bg-pokegray-50 w-[200px] min-h-fit rounded-lg hover:cursor-pointer hover:scale-110"
             onClick={handleNavigate}
         >
             <span className="flex items-center justify-center">

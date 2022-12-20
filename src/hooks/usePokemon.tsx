@@ -52,7 +52,10 @@ export const usePokemon = () => {
             const pokemonStatsArray = pokemonStatsPayload.map(
                 (pokemonStat: any) => {
                     const pokemonStatValues = { ...pokemonStat };
-                    const pokemonStatName = pokemonStatValues.stat.name;
+                    const pokemonStatNamePayload = pokemonStatValues.stat.name;
+                    const pokemonStatName =
+                        pokemonStatNamePayload.charAt(0).toUpperCase() +
+                        pokemonStatNamePayload.slice(1);
                     const pokemonStatBase = pokemonStatValues.base_stat;
                     return { pokemonStatName, pokemonStatBase };
                 }
@@ -62,7 +65,11 @@ export const usePokemon = () => {
             const pokemonAbilitiesArray = [...pokemonPayload.abilities];
             const abilitiesNameArray = pokemonAbilitiesArray.map(
                 (abilityName: any) => {
-                    return abilityName.ability.name;
+                    const pokemonAbilityNamePayload = abilityName.ability.name;
+                    const pokemonAbilityName =
+                        pokemonAbilityNamePayload.charAt(0).toUpperCase() +
+                        pokemonAbilityNamePayload.slice(1);
+                    return pokemonAbilityName;
                 }
             );
             pokemonStore.setPokemonAbilities(abilitiesNameArray);
@@ -72,12 +79,15 @@ export const usePokemon = () => {
                 .slice(0, 3)
                 .map((pokemonMove: any) => {
                     const pokemonMovesValue = { ...pokemonMove };
-                    const pokemonMoveName = pokemonMovesValue.move.name;
+                    const pokemonMoveNamePayload = pokemonMovesValue.move.name;
+                    const pokemonMoveName =
+                        pokemonMoveNamePayload.charAt(0).toUpperCase() +
+                        pokemonMoveNamePayload.slice(1);
                     return pokemonMoveName;
                 });
             pokemonStore.setPokemonMoves(pokemonMovesArray);
         };
-        fetchPokemons('bulbasaur');
+        fetchPokemons('pikachu');
     }, []);
 
     const setPokemonName = (pokemonName: string) =>

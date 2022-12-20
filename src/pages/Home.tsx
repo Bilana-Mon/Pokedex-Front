@@ -4,7 +4,7 @@ import Search from '../components/Search';
 
 const Home = () => {
     return (
-        <div className="min-h-screen text-pokegray-50">
+        <div className="min-h-fit text-pokegray-50">
             <Search />
             <Homepage />
         </div>
