@@ -7,95 +7,131 @@
 }
 
 @font-face {
-  font-family: "FLEXO-MEDIUM";
+  font-family: "FLEXO-large";
 }
 
 .normal {
   background: #A4AcAf;
   color: #313131;
+  font-size: large;
+  font-weight: bold;
 }
 
 .grass {
   background: #9Bcc50;
   color: #313131;
+  font-size: large;
+  font-weight: bold;
 }
 
 .poison {
   background: #B97FC9;
   color: #F2F2F2;
+  font-size: large;
+  font-weight: bold;
 }
 
 .fire {
   background: #FD7D24;
   color: #F2F2F2;
+  font-size: large;
+  font-weight: bold;
 }
 
 .water {
   background: #4592C4;
   color: #F2F2F2;
+  font-size: large;
+  font-weight: bold;
 }
 
 .flying {
   background: #3DC7EF;
   color: #313131;
+  font-size: large;
+  font-weight: bold;
 }
 
 .bug {
   background: #729F3F;
   color: #F2F2F2;
+  font-size: large;
+  font-weight: bold;
 }
 
 .electric {
   background: #EED535;
   color: #313131;
+  font-size: large;
+  font-weight: bold;
 }
 
 .ground {
   background: #AB9842;
   color: #313131;
+  font-size: large;
+  font-weight: bold;
 }
 
 .fairy {
   background: #FDB9E9;
   color: #313131;
+  font-size: large;
+  font-weight: bold;
 }
 
 .fighting {
   background: #D56723;
   color: #F2F2F2;
+  font-size: large;
+  font-weight: bold;
 }
 
 .psychic {
   background: #F366D9;
   color: #F2F2F2;
+  font-size: large;
+  font-weight: bold;
 }
 
 .rock {
   background: #A38C21;
   color: #F2F2F2;
+  font-size: large;
+  font-weight: bold;
 }
 
 .steel {
   background: #9Eb7B8;
   color: #313131;
+  font-size: large;
+  font-weight: bold;
 }
 
 .ice {
   background: #51C4E7;
   color: #313131;
+  font-size: large;
+  font-weight: bold;
 }
 
 .ghost {
   background: #7B62A3;
   color: #F2F2F2;
+  font-size: large;
+  font-weight: bold;
 }
 
 .dragon {
   background: #F16E57;
   color: #F2F2F2;
+  font-size: large;
+  font-weight: bold;
 }
 
 .dark {
   background: #707070;
   color: #F2F2F2;
+  font-size: large;
+  font-weight: bold;
 }
