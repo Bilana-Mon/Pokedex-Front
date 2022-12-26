@@ -31,10 +31,10 @@ export const usePokemon = () => {
 
             pokemonStore.setPokemonIndex(pokemonPayload.id);
 
-            const pokemonNamePoayload = pokemonPayload.name;
+            const pokemonNamePayload = pokemonPayload.name;
             const pokemonName =
-                pokemonNamePoayload.charAt(0).toUpperCase() +
-                pokemonNamePoayload.slice(1);
+                pokemonNamePayload.charAt(0).toUpperCase() +
+                pokemonNamePayload.slice(1);
             pokemonStore.setPokemonName(pokemonName);
 
             const pokemonTypesPayload = pokemonPayload.types;
